@@ -11,7 +11,7 @@ var contain=document.getElementById('contain');
 var submit=document.getElementById('btnsubmit');
 var time=document.getElementById('time');
 var test=document.getElementById('0');
-sessionStorage.setItem("instr",test.textContent);
+localStorage.setItem("instr",test.textContent);
 var search=document.querySelector('.search input');
 var num;
 
@@ -87,11 +87,11 @@ Array.from(grid.children)
 //  converting  stored document  into html elements & dispalying on screen 
 function display(){
    
-    for(var i=1;i<=parseInt(sessionStorage.getItem('total'));i++){
-       var index= (i+100).toString();
-        if(sessionStorage.getItem(index)!=null)
+    for(var i=1;i<=parseInt(localStorage.getItem('total'));i++){
+       var index= (i+1000).toString();
+        if(localStorage.getItem(index)!=null)
         {
-        var abc=new DOMParser().parseFromString(sessionStorage.getItem(index),'text/html');
+        var abc=new DOMParser().parseFromString(localStorage.getItem(index),'text/html');
    
       grid.prepend(abc.body);
         }     
@@ -104,16 +104,16 @@ function display(){
  contain.addEventListener('click',e=>{
      num=e.target.id;
     //  storing the id of selected note
-    sessionStorage.setItem("click",num);
+    localStorage.setItem("click",num);
 
     // deleting note
 if(e.target.classList.contains('bottom')  ){      
  var temp=e.target.id.substring(1,e.target.id.length);    
 
 if (confirm("Do you want to delete?")) {
-sessionStorage.removeItem(temp);
-var str=(parseInt(temp)+100).toString();
-sessionStorage.removeItem(str);
+localStorage.removeItem(temp);
+var str=(parseInt(temp)+1000).toString();
+localStorage.removeItem(str);
 location.reload();                       
  } 
 
