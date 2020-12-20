@@ -9,19 +9,15 @@
     <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="firework.css">
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 </head>
 <body onload="display()" class="bb">
     
-   
+     <!-- navigation bar -->
   <nav class="navbar fixed-top navbar-light bg-light icon" >
-   
     <form class="form-inline icon1" >
-      
       <a href="index.html" class="n"><i class="fas fa-sticky-note" id="nn" style="color:white;"></i></a>
       <a href="todo.html" class="t"> <i class="fas fa-tasks" id="tt" style="color: rgb(239, 149, 2) ;"></i></a>
     </form>
@@ -30,56 +26,42 @@
   </nav>
 
  
-
+<!-- search form -->
 <form class="search" autocomplete="off">
-  <!-- Search form -->
   <i class="fa fa-search se" aria-hidden="true"></i>
-<input class="form-control" type="text" name="search" placeholder="Search" aria-label="Search" >
+  <input class="form-control" type="text" name="search" placeholder="Search" aria-label="Search"  id="sea" >
+  <button id="mike" class="mike" type="button" onclick="runSpeechRecognition()"><i class="fa fa-microphone" aria-hidden="true"></i></button>
 </form>
 
-<div class="backa hide" id="backp">
-  <i  id="btnsubmit"  class="fas fa-save btn" ></i>
-  <i class="fa fa-arrow-left" id="back"> </i>
-  
- </div>
-    
+      <!-- todo-list -->
+
     <div class="contain" id="contain">
+      <!-- add icon -->
       <div id="c" >
         <a href="edittodo.html"> <i class="fa fa-plus  new" id="-1" aria-hidden="true" style="font-size: 20px;" ></i></a>
       </div>
     <div class="gid" id="grid">
-
-  
-
-
-
-
-   <div class="boxx" id="box0"  >
+     <!-- template todo item -->
+   <div class="boxx" id="boxx0"  >
         <div  class="bro" id="0"  >Add your task
         </div>
-       <ul>
+       <ul >
       <li style="padding-right: 10px;">  <i class="fa fa-clock-o" style="color:red;background: rgb(36, 36, 36);"></i></li>
          <li id="t0" style=" background: rgb(36, 36, 36);">00 00 00 00:00</li> 
       </ul>
       <a href="edittodo.html"  class="aa" id="0"></a>
     </div>
-
-  
-
+    <!-- completing fireworks animation -->
     <div class="firework hide " id="fw"  style="position: absolute;z-index: 666;margin-top: 73px; margin-left: 20px;">
       <div class="pyro">
           <div class="before" style="background: none;"></div>
           <div class="after" style="background: none;opacity: 0; display: none;"></div>
         </div>
   </div>
-
-
   </div>
       </div>
-     
 
-     
-        
+     <!-- JavaScript file link -->   
         <script src="function1.js"></script>
   </body>
 </html>

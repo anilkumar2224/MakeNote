@@ -6,39 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MakeNote</title>
     <link rel="stylesheet" href="style.css">
-    
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 </head>
 <body onload="display()" class="bb" >
 
-  
+  <!-- navigation bar -->
+
   <nav class="navbar fixed-top navbar-light bg-light icon" >
-   
     <form class="form-inline icon1" >
-      
       <a href="index.html" class="n"><i class="fas fa-sticky-note " id="nn"></i></a>
       <a href="todo.html" class="t"><i class="fas fa-tasks " id="tt"></i></a>
     </form>
+    <!-- my logo -->
     <canvas id="canvas1" class="div1" onclick="window.open('https://anilkumar2224.github.io/mywebsite/')">
      
     </canvas>
   </nav>
 
- 
+ <!-- search form -->
 
 <form class="search" autocomplete="off">
-  <!-- Search form -->
   <i class="fa fa-search se" aria-hidden="true"></i>
-<input class="form-control" type="text" name="search" placeholder="Search" aria-label="Search" >
+<input class="form-control" type="text" name="search" placeholder="Search" aria-label="Search"  id="sea" >
+<button id="mike" class="mike" type="button" onclick="runSpeechRecognition()"><i class="fa fa-microphone" aria-hidden="true"></i></button>
 </form>
 
 
-    
+    <!-- Notes grid -->
+
     <div class="contain" id="contain">
+      <!-- add icon -->
       <div id="c" >
        <a href="edit.html"> <i class="fa fa-plus  new" id="-1" aria-hidden="true" ></i></a>
       </div>
     <div class="grid-container" id="grid">
+      <!-- template note -->
    <div class="box" id="box0"  >
         <div  class="b" id="0">
 Title
@@ -59,7 +61,7 @@ Set reminders
 Set reminders directly from to-do list.
 Tap the to-do list , set the time.
         </div>
-       <ul>
+       <ul style="margin-top: 0;">
          <li id="t0" style=" background: rgb(36, 36, 36);">00 00 00 00:00</li>                
       </ul>
       <a href="edit.html"  class="aa" id="0"></a>
@@ -69,13 +71,9 @@ Tap the to-do list , set the time.
       </div>
       
 
+<!-- JavaScript file link -->
 
-
-      <script src="function.js" >
-       
-      </script>
+<script src="function.js" ></script>
       
-      
-
 </body>
 </html>
