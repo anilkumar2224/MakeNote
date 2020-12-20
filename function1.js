@@ -87,13 +87,13 @@ Array.from(grid.children)
 //  converting  stored document  into html elements & dispalying on screen 
 function display(){
       
-    for(var i=1;i<=parseInt(sessionStorage.getItem('totall'));i++){
-       var fek= (i+200).toString();
+    for(var i=1;i<=parseInt(localStorage.getItem('totall'));i++){
+       var fek= (i+2000).toString();
    
     document.getElementById('fw').classList.add('hide');
-        if(sessionStorage.getItem(fek)!=null)
+        if(localStorage.getItem(fek)!=null)
         {
-        var abc=new DOMParser().parseFromString(sessionStorage.getItem(fek),'text/html');
+        var abc=new DOMParser().parseFromString(localStorage.getItem(fek),'text/html');
 
 
         // adding checked todo at the bottom
@@ -126,7 +126,7 @@ function display(){
     // accessing checked todo id
      idd="c"+iddd;
       //  storing the id of selected todo
-    sessionStorage.setItem("clickd",num);
+    localStorage.setItem("clickd",num);
 
 // deleting note
 if(e.target.classList.contains('bottom')  ){
@@ -135,10 +135,10 @@ num=e.target.id.substring(1,e.target.id.length);
 
     if (confirm("Do you want to delete?")) {
 
-    var str=(parseInt(num)+200).toString();
-    sessionStorage.removeItem(str);
+    var str=(parseInt(num)+2000).toString();
+    localStorage.removeItem(str);
     num="todo"+num;
-    sessionStorage.removeItem(num);
+    localStorage.removeItem(num);
     location.reload();
 
     } 
@@ -152,7 +152,7 @@ document.getElementById(iddd).style.textDecoration='line-through';
 x=parseInt(iddd);
 const html=`
 <div class="boxx" id="box${x}">
-<div class="bro" id="${x}" style="text-decoration:line-through;margin-top:-8px">${sessionStorage.getItem("todo"+x.toString())}</div>
+<div class="bro" id="${x}" style="text-decoration:line-through;margin-top:-8px">${localStorage.getItem("todo"+x.toString())}</div>
 <ul style="margin-top:5px;">
 <li><input type="checkbox" id="c${x}" name="check" style="outline-color:white;" checked></li>
 <li style="padding-right: 10px;"><i class="fa fa-clock-o" style="color:green;background: rgb(36, 36, 36);"></i></li>
@@ -162,8 +162,8 @@ const html=`
 <a href="edittodo.html" class="aa"  id="${x}"></a>
 </div>`;
 // storing completed todo at the corresponding old todo key
-var str=(x+200).toString();
-sessionStorage.setItem(str,html);
+var str=(x+2000).toString();
+localStorage.setItem(str,html);
 location.reload();
 }
 else{
@@ -172,7 +172,7 @@ x=parseInt(iddd);
 
 const html=`
 <div class="boxx" id="box${x}">
-<div class="bro" id="${x}" style="text-decoration:none;margin-top:-8px">${sessionStorage.getItem("todo"+x.toString())}</div>
+<div class="bro" id="${x}" style="text-decoration:none;margin-top:-8px">${localStorage.getItem("todo"+x.toString())}</div>
 <ul style="margin-top:5px;">
 <li><input type="checkbox" id="c${x}" name="check" style="outline-color:white;" ></li>
 <li style="padding-right: 10px;"><i class="fa fa-clock-o" style="color:red;background: rgb(36, 36, 36);"></i></li>
@@ -182,8 +182,8 @@ const html=`
 <a href="edittodo.html" class="aa"  id="${x}"></a>
 </div>`;
 // storing unchecked todo at the corresponding old todo key
-var str=(x+200).toString();
-sessionStorage.setItem(str,html);
+var str=(x+2000).toString();
+localStorage.setItem(str,html);
 location.reload();
 }
 
