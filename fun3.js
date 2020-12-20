@@ -14,9 +14,9 @@ var months=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","D
 
 
 // initialsing no of notes
-if(sessionStorage.getItem('total')==null){
+if(localStorage.getItem('total')==null){
     var item=0;
-    sessionStorage.setItem("total",item.toString());
+    localStorage.setItem("total",item.toString());
 }
 
 
@@ -24,15 +24,15 @@ if(sessionStorage.getItem('total')==null){
 
 // accessing selected note id 
  
-var a=parseInt(sessionStorage.getItem("click"));
+var a=parseInt(localStorage.getItem("click"));
 
 if(a==0){
-    inputText.value=sessionStorage.getItem("instr");
+    inputText.value=localStorage.getItem("instr");
     submit.style.display='none';
     document.getElementById('ll').style.display='none';
 }
 else{
-    inputText.value=sessionStorage.getItem(a.toString());
+    inputText.value=localStorage.getItem(a.toString());
     submit.style.display='block';
     inputText.style.pointerEvents='auto';
 }
@@ -62,16 +62,16 @@ e.preventDefault();
 
 if(a==-1){
     // stroing incrementd total notes value 
-x=parseInt(sessionStorage.getItem("total"))+1;
-sessionStorage.setItem("total",x.toString());
+x=parseInt(localStorage.getItem("total"))+1;
+localStorage.setItem("total",x.toString());
 
  // stroing new text at unique key
-sessionStorage.setItem(x.toString(),inputText.value);
+localStorage.setItem(x.toString(),inputText.value);
 
 // creating new note html Element template
 const html=`
 <div class="box" id="box${x}">
-<div  class="b" id="${x}">${sessionStorage.getItem(x.toString())}</div>
+<div  class="b" id="${x}">${localStorage.getItem(x.toString())}</div>
 <ul>
 <li id="t${x}">${dformat}</li> 
 <li> <i class="fas fa-trash bottom"  id="d${x}" style="color: orange;" ></i></li> 
@@ -79,8 +79,8 @@ const html=`
 <a href="edit.html" class="aa" id="${x}"></a>  
 </div>`;
 // stroing new html element in unique key value
-var str=(x+100).toString();
-sessionStorage.setItem(str,html.trim());
+var str=(x+1000).toString();
+localStorage.setItem(str,html.trim());
 
 // success toast
 M.toast({html: 'saved successfully!', classes: 'rounded  black-text #1de9b6 teal accent-3 text-darken-5'});
@@ -93,11 +93,11 @@ else{
 
 // stroing edited text in corrresponding old text key value
 
-sessionStorage.setItem(a.toString(),inputText.value);  
+localStorage.setItem(a.toString(),inputText.value);  
 x=a;
 const html=`
 <div class="box" id="box${x}">
-<div class="b" id="${x}">${sessionStorage.getItem(x.toString())}</div>
+<div class="b" id="${x}">${localStorage.getItem(x.toString())}</div>
 <ul>
 <li id="t${x}">${dformat}</li> 
 <li> <i class="fas fa-trash bottom" id="d${x}" style="color: orange;"></i></li> 
@@ -106,8 +106,8 @@ const html=`
 </div>`;
 
 // stroing edited html element in corrresponding old element key value
-var str=(x+100).toString();
-sessionStorage.setItem(str,html);
+var str=(x+1000).toString();
+localStorage.setItem(str,html);
 
 
 // success toast
