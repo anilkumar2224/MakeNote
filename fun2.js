@@ -10,21 +10,21 @@ var contain=document.getElementById('contain');
 var submit=document.getElementById('btnsubmit');
 var time=document.getElementById('time');
 var test=document.getElementById('0');
-sessionStorage.setItem("instrr",test.textContent);
+localStorage.setItem("instrr",test.textContent);
 var deadline= document.getElementById('deadline');
 
 // initialsing no of todos
-if(sessionStorage.getItem('totall')==null){
+if(localStorage.getItem('totall')==null){
     var item=0;
-    sessionStorage.setItem("totall",item.toString());
+    localStorage.setItem("totall",item.toString());
 }
 
 
 // accessing selected todo id 
-var a=parseInt(sessionStorage.getItem("clickd"));
+var a=parseInt(localStorage.getItem("clickd"));
 
 if(a==0){
-    inputText.value=sessionStorage.getItem("instrr");
+    inputText.value=localStorage.getItem("instrr");
     submit.style.display='none';
     inputText.style.pointerEvents='none';
     deadline.classList.add('hide');
@@ -33,7 +33,7 @@ if(a==0){
     inputText.style.marginLeft='-10px';
 }
 else{
-    inputText.value=sessionStorage.getItem("todo"+a.toString());
+    inputText.value=localStorage.getItem("todo"+a.toString());
     submit.style.display='block';
     inputText.style.pointerEvents='auto';
 
@@ -51,16 +51,16 @@ submit.addEventListener('click',e=>{
 if(a==-1){
 
  // stroing incrementd total notes value 
-x=parseInt(sessionStorage.getItem("totall"))+1;
-sessionStorage.setItem("totall",x.toString());
+x=parseInt(localStorage.getItem("totall"))+1;
+localStorage.setItem("totall",x.toString());
 
 // stroing new text at unique key
-sessionStorage.setItem("todo"+x.toString(),inputText.value);
+localStorage.setItem("todo"+x.toString(),inputText.value);
 
 // creating new to-do html Element template
 const html=`
 <div class="boxx" id="box${x}">
-<div  class="bro" id="${x}" style="margin-top:-8px;">${sessionStorage.getItem("todo"+x.toString())}</div>
+<div  class="bro" id="${x}" style="margin-top:-8px;">${localStorage.getItem("todo"+x.toString())}</div>
 <ul style="margin-top:3px;">
 <li><input type="checkbox" id="c${x}" name="check" style="outline-color:white;" ></li>
 <li style="padding-right: 10px;">  <i class="fa fa-clock-o" style="color:red;background: rgb(36, 36, 36);"></i></li>
@@ -71,8 +71,8 @@ const html=`
 </div>`;
 
 // stroing new html element in unique key value
-var str=(x+200).toString();
-sessionStorage.setItem(str,html.trim());
+var str=(x+2000).toString();
+localStorage.setItem(str,html.trim());
 
 // success toast
 M.toast({html: 'saved successfully!', classes: 'rounded  black-text #1de9b6 teal accent-3 text-darken-5'});
@@ -83,13 +83,13 @@ return;
 else{
 
 // stroing edited text in corrresponding old text key value
-sessionStorage.setItem("todo"+a.toString(),inputText.value);  
+localStorage.setItem("todo"+a.toString(),inputText.value);  
 x=a;
 
 const html=`
 <div class="boxx" id="box${x}">
 
-<div class="bro" id="${x}">${sessionStorage.getItem("todo"+x.toString())}</div>
+<div class="bro" id="${x}">${localStorage.getItem("todo"+x.toString())}</div>
 <ul style="margin-top:8px;">
 <li><input type="checkbox" id="c${x}" name="check" style="outline-color:white;" ></li>
 <li style="padding-right: 10px;"><i class="fa fa-clock-o" style="color:red;background: rgb(36, 36, 36);"></i></li>
@@ -100,8 +100,8 @@ const html=`
 </div>`;
 
 // stroing edited html element in corrresponding old element key value
-var str=(x+200).toString();
-sessionStorage.setItem(str,html);
+var str=(x+2000).toString();
+localStorage.setItem(str,html);
 
 // success toast
 M.toast({html: 'saved successfully!', classes: 'rounded  black-text #1de9b6 teal accent-3 text-darken-5'});
