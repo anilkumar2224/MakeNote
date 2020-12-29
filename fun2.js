@@ -20,6 +20,11 @@ if(localStorage.getItem('totall')==null){
 }
 
 
+//going to back page
+back.addEventListener('click',()=>{
+    window.history.back();
+});
+
 // accessing selected todo id 
 var a=parseInt(localStorage.getItem("clickd"));
 
