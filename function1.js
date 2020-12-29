@@ -17,6 +17,18 @@ var idd;
 var x;
 var iddd;
 
+var note=document.getElementById('nn');
+
+//going to back page
+
+note.addEventListener('click',()=>{
+    window.history.back();
+    });
+
+
+
+
+
 // voice recognition function
 function runSpeechRecognition() {
             
