@@ -19,7 +19,11 @@ if(localStorage.getItem('total')==null){
     localStorage.setItem("total",item.toString());
 }
 
-
+//going to back page
+back.addEventListener('click',()=>{
+    window.history.back();
+  
+});
 
 
 // accessing selected note id 
